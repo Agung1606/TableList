@@ -5,17 +5,13 @@ import FlexBetween from "../components/common/FlexBetween"
 import { 
     GridToolbarDensitySelector,
     GridToolbarContainer,
-    GridToolbarColumnsButton
 } from '@mui/x-data-grid'
 
 function DataGridCustomToolbar({ handleInputSearch }) {
   return (
     <GridToolbarContainer sx={{ marginBottom: 2 }}>
       <FlexBetween width="100%">
-        <FlexBetween>
-          <GridToolbarColumnsButton />
-          <GridToolbarDensitySelector />
-        </FlexBetween>
+        <GridToolbarDensitySelector />
         <TextField
           variant="standard"
           label="Search..."
