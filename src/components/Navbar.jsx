@@ -6,6 +6,7 @@ import {
     Typography,
 } from '@mui/material'
 import { Menu as IconMenu } from '@mui/icons-material'
+import logoApex from '../assets/apex-white.png'
 
 function Navbar() {
   return (
@@ -18,12 +19,10 @@ function Navbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <IconButton>
-          <IconMenu sx={{ color: "white" }} />
+          <IconMenu sx={{ color: "white", fontSize: 35 }} />
         </IconButton>
 
-        <Typography sx={{ fontSize: 18, fontFamily: "Inter" }}>
-          Apex Legends
-        </Typography>
+        <img src={logoApex} style={{ width: 180, height: 50 }} />
       </Toolbar>
     </AppBar>
   );

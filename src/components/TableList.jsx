@@ -7,9 +7,9 @@ function TableList({ rows, columns }) {
   const handleInputSearch = (event) => {
   };
   return (
-    <Box p="1.5rem 2rem">
       <Box
-        height="80vh"
+      width={800}
+        height="85vh"
         sx={{
           "& .MuiDataGrid-root": {
             background: "rgba(0, 0, 0, 0.73)",
@@ -64,7 +64,6 @@ function TableList({ rows, columns }) {
           }}
         />
       </Box>
-    </Box>
   );
 }
 

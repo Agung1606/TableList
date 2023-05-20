@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import axios from 'axios'
-import { Box, Avatar, Button, Tooltip } from "@mui/material";
+import { Box, Avatar, Button, Tooltip, useMediaQuery } from "@mui/material";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import bgImage from '../assets/bgImage.jpg'
+import charImg from '../assets/R.png'
 import TableList from '../components/TableList'
 
 const columns = [
@@ -78,6 +79,7 @@ const columns = [
 
 function Home() {
   const [ data, setData ] = useState([]);
+  const isDesktop = useMediaQuery("(min-width: 1200px)")
 
   useMemo(async() => {
     try {
@@ -90,17 +92,34 @@ function Home() {
     }
   }, [])
 
+  const imgStyle = {
+    width: 380,
+    height: 580,
+    "& img:hover": {
+      scale: 1.1
+    }
+  };
+
   return (
     <Box
       sx={{
-        height: "100%",
+        height: "100vh",
         backgroundImage: `url(${bgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        paddingTop: 3,
       }}
     >
-      {/* table */}
-      <TableList rows={data} columns={columns} />
+      <Box
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        {isDesktop && <img src={charImg} style={{ width: 380, height: 580 }} />}
+        <TableList rows={data} columns={columns} />
+      </Box>
     </Box>
   );
 }
