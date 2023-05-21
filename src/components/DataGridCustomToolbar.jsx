@@ -24,6 +24,7 @@ function DataGridCustomToolbar({ handleInputSearch }) {
             },
             "& .MuiInput-root": {
               color: "white",
+              borderBottom: "1px solid white",
             },
             "& .MuiInputBase-root": {
               textDecoration: "none",

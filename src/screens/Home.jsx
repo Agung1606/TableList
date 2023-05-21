@@ -100,19 +100,12 @@ function Home() {
     {
       field: "",
       headerName: "",
-      width: 180,
+      width: 80,
       renderCell: (params) => (
         <>
           <Tooltip title="Edit">
-            <Button onClick={() => {
-              handleOpenModal(params.row)
-            }}>
+            <Button onClick={() => handleOpenModal(params.row)}>
               <ModeEditIcon />
-            </Button>
-          </Tooltip>
-          <Tooltip title="Details">
-            <Button onClick={() => alert("See details")}>
-              <ArrowForwardIosIcon />
             </Button>
           </Tooltip>
         </>
@@ -145,11 +138,10 @@ function Home() {
         </Box>
       </Box>
       <Dialog
+        fullScreen
         open={openModal}
         TransitionComponent={Transition}
-        keepMounted
         onClose={handleCloseModal}
-        aria-describedby="alert-dialog-slide-description"
       >
         <ModalEdit item={item} handleCloseModal={handleCloseModal} />
       </Dialog>
