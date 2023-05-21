@@ -15,7 +15,7 @@ import bgImage from '../assets/bgImage.jpg'
 import charImg from '../assets/R.png'
 import TableList from '../components/TableList'
 import ModalEdit from '../components/common/ModalEdit';
-import { UnfoldLess } from '@mui/icons-material';
+import ModalDetails from '../components/common/ModalDetails';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -43,9 +43,11 @@ function Home() {
   }, []);
 
   // modal configuration
+  const [modalType, setModalType] = useState("edit");
   const [openModal, setOpenModal] = useState(false);
-  const handleOpenModal = (data) => {
+  const handleOpenModal = (data, type) => {
     setOpenModal(true);
+    setModalType(type);
     setItem(data);
   };
   const handleCloseModal = () => setOpenModal(false);
@@ -102,12 +104,17 @@ function Home() {
     {
       field: "",
       headerName: "",
-      width: 80,
+      width: 160,
       renderCell: (params) => (
         <>
           <Tooltip title="Edit">
-            <Button onClick={() => handleOpenModal(params.row)}>
+            <Button onClick={() => handleOpenModal(params.row, "edit")}>
               <ModeEditIcon />
+            </Button>
+          </Tooltip>
+          <Tooltip title="Details">
+            <Button onClick={() => handleOpenModal(params.row, "details")}>
+              <ArrowForwardIosIcon />
             </Button>
           </Tooltip>
         </>
@@ -157,7 +164,11 @@ function Home() {
         TransitionComponent={Transition}
         onClose={handleCloseModal}
       >
-        <ModalEdit item={item} handleCloseModal={handleCloseModal} />
+        {modalType === "edit" ? (
+          <ModalEdit item={item} handleCloseModal={handleCloseModal} />
+        ) : (
+          <ModalDetails item={item} handleCloseModal={handleCloseModal} />
+        )}
       </Dialog>
     </>
   );
