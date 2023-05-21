@@ -15,12 +15,16 @@ function DataGridCustomToolbar({ handleInputSearch }) {
         <TextField
           variant="standard"
           label="Search..."
+          helperText="Search based on category like: Talos, Gaea, Gridiron, and etc.."
           onChange={handleInputSearch}
           sx={{
             mb: "0.5rem",
             width: "15rem",
             "& .MuiFormLabel-root": {
               color: "white",
+            },
+            "& .MuiFormHelperText-root": {
+              color: "rgba(255, 255, 255, 0.8)",
             },
             "& .MuiInput-root": {
               color: "white",

@@ -15,6 +15,7 @@ import bgImage from '../assets/bgImage.jpg'
 import charImg from '../assets/R.png'
 import TableList from '../components/TableList'
 import ModalEdit from '../components/common/ModalEdit';
+import { UnfoldLess } from '@mui/icons-material';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -23,6 +24,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 function Home() {
   const isDesktop = useMediaQuery("(min-width: 1200px)");
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState(undefined);
   const [item, setItem] = useState({});
 
   const getDataApexLegends = async () => {
@@ -113,6 +115,14 @@ function Home() {
     },
   ];
 
+  // search configuration
+  const handleInputSearch = (event) => {
+    const filtered = data.filter((item) => {
+      return item.home.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+    setFilteredData(filtered);
+  };
+
   return (
     <>
       <Box
@@ -134,7 +144,11 @@ function Home() {
           {isDesktop && (
             <img src={charImg} style={{ width: 380, height: 580 }} />
           )}
-          <TableList rows={data} columns={columns} />
+          <TableList
+            rows={filteredData ? filteredData : data}
+            columns={columns}
+            handleInputSearch={handleInputSearch}
+          />
         </Box>
       </Box>
       <Dialog

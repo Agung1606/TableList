@@ -3,12 +3,10 @@ import { Box } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import DataGridCustomToolbar from './DataGridCustomToolbar';
 
-function TableList({ rows, columns }) {
-  const handleInputSearch = (event) => {
-  };
+function TableList({ rows, columns, handleInputSearch }) {
   return (
       <Box
-      width={800}
+        width={800}
         height="85vh"
         sx={{
           "& .MuiDataGrid-root": {
