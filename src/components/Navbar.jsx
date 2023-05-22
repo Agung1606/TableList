@@ -8,7 +8,7 @@ import {
 import { Menu as IconMenu } from '@mui/icons-material'
 import logoApex from '../assets/apex-white.png'
 
-function Navbar() {
+function Navbar({ handleSidebar }) {
   return (
     <AppBar
       sx={{
@@ -18,7 +18,7 @@ function Navbar() {
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <IconButton>
+        <IconButton onClick={handleSidebar}>
           <IconMenu sx={{ color: "white", fontSize: 35 }} />
         </IconButton>
 

@@ -143,30 +143,3 @@ function ModalEdit({ item, handleCloseModal }) {
 }
 
 export default ModalEdit;
-
-
-{
-  /* <Box sx={{ display: "flex", columnGap: 1, marginX: 2 }}>
-        {item.ability.map((data) => (
-          <Box
-            sx={{
-              padding: "4px",
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: "rgba(0, 0, 0, 0.65)",
-              borderRadius: "10px",
-              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <Tooltip title={data.title}>
-              <img
-                src={data.icon}
-                alt={`skill-img`}
-                style={{ width: 130, height: 80, cursor: "pointer" }}
-              />
-            </Tooltip>
-            <Typography sx={{ color: "white" }}>{data.desc}</Typography>
-          </Box>
-        ))}
-      </Box> */
-}
